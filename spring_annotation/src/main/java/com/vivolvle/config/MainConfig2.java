@@ -1,8 +1,11 @@
 package com.vivolvle.config;
 
 import com.vivolvle.bean.Color;
+import com.vivolvle.bean.ColorFactoryBean;
 import com.vivolvle.bean.Person;
 import com.vivolvle.condition.LinuxCondition;
+import com.vivolvle.condition.MyImportBeanDefinitionRegistrar;
+import com.vivolvle.condition.MyImportSelector;
 import com.vivolvle.condition.WindowsCondition;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.*;
@@ -14,7 +17,7 @@ import org.springframework.context.annotation.*;
 @Configuration
 //类中配置统一设置，满足当前条件，这个config中的所有配置才会生效
 @Conditional(WindowsCondition.class)
-@Import(Color.class)
+@Import({Color.class, MyImportSelector.class, MyImportBeanDefinitionRegistrar.class})    //可以传数组
 public class MainConfig2 {
     //默认单实例
 
@@ -49,6 +52,11 @@ public class MainConfig2 {
     @Bean("linus")
     public Person person02() {
         return new Person("linus", 30);
+    }
+
+    @Bean
+    public ColorFactoryBean colorFactoryBean(){
+        return new ColorFactoryBean();
     }
 
 }

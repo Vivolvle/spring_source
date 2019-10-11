@@ -1,5 +1,6 @@
 package com.vivolvle;
 
+import com.vivolvle.bean.Blue;
 import com.vivolvle.bean.Person;
 import com.vivolvle.config.MainConfig;
 import com.vivolvle.config.MainConfig2;
@@ -46,12 +47,19 @@ public class IOCTest {
     }
 
     @Test
-    public void testImport(){
+    public void testImport() {
         ApplicationContext context = new AnnotationConfigApplicationContext(MainConfig2.class);
         printBeans(context);
+        Blue blue = context.getBean(Blue.class);
+        System.out.println(blue);
+        //工厂Bean获取的是调用getObject创建的对象
+        Object colorFactoryBean = context.getBean("colorFactoryBean");
+        System.out.println("bean的类型" + colorFactoryBean.getClass());
+        Object bean1 = context.getBean("&colorFactoryBean");
+        System.out.println(bean1.getClass());
     }
 
-    private void printBeans(ApplicationContext context){
+    private void printBeans(ApplicationContext context) {
         String[] beanDefinitionNames = context.getBeanDefinitionNames();
         for (String name : beanDefinitionNames) {
             System.out.println(name);
