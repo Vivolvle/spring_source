@@ -1,7 +1,6 @@
 package com.vivolvle;
 
 import com.vivolvle.bean.Boss;
-import com.vivolvle.bean.Color;
 import com.vivolvle.config.MainConfigOfAutowired;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -22,7 +21,7 @@ public class IOCTest_Autowired {
 //        System.out.println(context.getBean(BookDao.class));
         Boss boss = context.getBean(Boss.class);
         System.out.println(boss);
-        Color color = context.getBean(Color.class);
-        System.out.println(color);
+//        Color color = context.getBean(Color.class);
+//        System.out.println(color);
     }
 }

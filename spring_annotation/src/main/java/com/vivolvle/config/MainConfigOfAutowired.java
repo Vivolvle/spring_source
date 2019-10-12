@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
  *          Inject：需加入maven依赖,没有required = false的功能
  *      3:@Autowired 构造器，参数，方法，属性都可以标注@Autowired
  *      1):[标注在方法位置]，@Bean+方法参数，参数从容器中获取，默认不加@Autowired
- *      2):[标在构造器上]，如果组件只有一个有参构造器，这个有参构造器的@Autowired可以省略，参数位置的组件还是可以自动从ioc容器中获取
+ *      2):[标在构造器上]，如果组件只有一个有参构造器，这个有参构造器的@Autowired可以省略，参数位置的组件还是可以自动从ioc容器中获取(多个亦可从ioc中获取)
  *      3):放在参数位置
  * @date 2019/10/12 14:56
  * @Copyright: 2019 dingxiang-inc.com Inc. All rights reserved.
