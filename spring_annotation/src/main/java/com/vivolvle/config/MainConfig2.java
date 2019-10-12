@@ -36,7 +36,7 @@ public class MainConfig2 {
 //    @Scope("prototype")
     @Bean
     public Person person() {
-        return new Person("张三", 19);
+        return new Person("张三", 19,"小张三");
     }
 
     /**
@@ -45,13 +45,13 @@ public class MainConfig2 {
     @Conditional({WindowsCondition.class})
     @Bean("bill")
     public Person person01() {
-        return new Person("bill", 20);
+        return new Person("bill", 20,"小bill");
     }
 
     @Conditional(LinuxCondition.class)
     @Bean("linus")
     public Person person02() {
-        return new Person("linus", 30);
+        return new Person("linus", 30,"小linus");
     }
 
     @Bean

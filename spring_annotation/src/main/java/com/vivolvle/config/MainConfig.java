@@ -34,6 +34,6 @@ public class MainConfig {
      */
     @Bean("person")
     public Person person01() {
-        return new Person("李四", 20);
+        return new Person("李四", 20,"小李四");
     }
 }
