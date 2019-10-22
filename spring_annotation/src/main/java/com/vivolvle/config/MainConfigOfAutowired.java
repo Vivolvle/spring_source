@@ -20,6 +20,10 @@ import org.springframework.context.annotation.Configuration;
  *      1):[标注在方法位置]，@Bean+方法参数，参数从容器中获取，默认不加@Autowired
  *      2):[标在构造器上]，如果组件只有一个有参构造器，这个有参构造器的@Autowired可以省略，参数位置的组件还是可以自动从ioc容器中获取(多个亦可从ioc中获取)
  *      3):放在参数位置
+ *      4:自定义组件想要使用spring底层的一些组件(applicationContext,beanFactory,xxx),
+ *      自定义组件实现xxxAware,在创建对象的时候，会调用接口规定的方法注入相关组件:Aware
+ *      把spring底层一些组件注入到自定义的Bean中；
+ *      xxxAware,功能使用xxxProcessor
  * @date 2019/10/12 14:56
  * @Copyright: 2019 dingxiang-inc.com Inc. All rights reserved.
  */

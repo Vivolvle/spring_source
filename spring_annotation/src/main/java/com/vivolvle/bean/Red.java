@@ -5,12 +5,14 @@ import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.EmbeddedValueResolverAware;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringValueResolver;
 
 /**
  * @author weilz
  * @date 2019/10/20
  */
+@Component
 public class Red implements ApplicationContextAware, BeanNameAware, EmbeddedValueResolverAware {
     private ApplicationContext applicationContext;
     @Override

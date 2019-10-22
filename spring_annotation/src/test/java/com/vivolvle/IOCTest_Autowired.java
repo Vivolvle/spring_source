@@ -16,6 +16,7 @@ public class IOCTest_Autowired {
     public void test01() {
         //创建ioc容器
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(MainConfigOfAutowired.class);
+        System.out.println("context is: " + context);
 //        BookService bookService = context.getBean(BookService.class);
 //        bookService.print();
 //        System.out.println(context.getBean(BookDao.class));
