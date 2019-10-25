@@ -2,9 +2,11 @@ package com.vivolvle.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.EmbeddedValueResolverAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.util.StringValueResolver;
 
 import javax.sql.DataSource;
 
@@ -18,9 +20,11 @@ import javax.sql.DataSource;
  */
 @PropertySource("classpath:/dbconfig.properties")
 @Configuration
-public class MainConfigOfProfile {
+public class MainConfigOfProfile implements EmbeddedValueResolverAware {
     @Value("${db.name}")
     private String user;
+
+    private StringValueResolver stringValueResolver;
 
     @Bean
     public DataSource dataSourceTest(@Value("${db.password}") String pwd){
@@ -53,4 +57,8 @@ public class MainConfigOfProfile {
     }
 
 
+    @Override
+    public void setEmbeddedValueResolver(StringValueResolver resolver) {
+        this.stringValueResolver = resolver;
+    }
 }
